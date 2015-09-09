@@ -27,6 +27,7 @@ public class Game : MonoBehaviour {
 	public GameObject missionShow;
 	public GameObject buttonsList;
 	public GameObject touchZoneLbl;
+	public GameObject garageBtn;
 
 
 	public UILabel taskView;
@@ -309,6 +310,7 @@ public class Game : MonoBehaviour {
 			if(pre[i] != after[i])
 			{
 				newBike = true;
+				data.allowBikes.Add(data.allowBikes.Count);
 				break;
 			}
 		}
@@ -316,6 +318,7 @@ public class Game : MonoBehaviour {
 		if(newBike)
 		{
 			StartCoroutine(showAvailableBike());
+			StartCoroutine(refreshCircles());
 		}
 
 		data.cash += points;
@@ -350,10 +353,27 @@ public class Game : MonoBehaviour {
 		return bikesAllow;
 	}
 
+	public void OnGarageClick()
+	{
+		Time.timeScale = 0f;
+		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().Reset ();
+		data.currentBike = data.allowBikes.Count-1;
+		data.save ();
+		isRunning = false;
+		Time.timeScale = 1f;
+		GoTo.LoadNewShop ();
+//		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().Reset ();
+//		Time.timeScale = 1f;
+//		isRunning = false;
+//		GoTo.LoadMenu ();
+	}
+
+
 	IEnumerator showAvailableBike()
 	{
 		yield return new WaitForEndOfFrame ();
 		bikeAvailable.SetActive (true);
+		garageBtn.SetActive (true);
 		yield return new WaitForSeconds (5.0f);
 		bikeAvailable.SetActive (false);
 		yield return null;

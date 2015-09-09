@@ -355,12 +355,12 @@ public class BikeControl : MonoBehaviour
 
     }
 
-	void OnTriggerEnter(Collider other) {
-		if(other.name.Equals("Water"))
-		{
-			Game.instance.OnTouchZone();
-		}
-	}
+//	void OnTriggerEnter(Collider other) {
+//		if(other.name.Equals("Water"))
+//		{
+//			Game.instance.OnTouchZone();
+//		}
+//	}
 
     // handle shifting a gear up
     public void ShiftUp()
@@ -407,7 +407,7 @@ public class BikeControl : MonoBehaviour
     }
 	
     void Update()
-    {
+	{
 		if(moveUp)
 		{
 			if(moveUpValue + stepForValue <=1f)
@@ -506,6 +506,10 @@ public class BikeControl : MonoBehaviour
 			else
 				steer = Mathf.MoveTowards(steer, 0f, Time.deltaTime * 2.5f);
 			shift = nitro;
+
+			//TODO: eto dlya bali
+			if(shift && shifmotor)
+				accel = 1f;
 		}
 
 		#if UNITY_EDITOR

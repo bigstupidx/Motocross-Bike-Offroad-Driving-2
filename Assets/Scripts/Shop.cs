@@ -113,7 +113,8 @@ public class Shop : MonoBehaviour {
 		else
 		{
 			playBtn.SetActive(false);
-			unlockBtn.SetActive(true);
+			//TODO: eto blya 4tobi ne otkrivat' baiki
+			//unlockBtn.SetActive(true);
 			bikeInfo.text ="Price: " + prices[curBike].ToString() + " points";
 		}
 	}
