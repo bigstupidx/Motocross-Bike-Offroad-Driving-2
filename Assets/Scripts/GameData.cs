@@ -65,11 +65,6 @@ public class GameData{
 		allowLvls = 1;
 		allowBikes = new List<int> ();
 		allowBikes.Add (0);
-		allowBikes.Add (1);
-		allowBikes.Add (2);
-		allowBikes.Add (3);
-		allowBikes.Add (4);
-		allowBikes.Add (5);
 		collectedItems = new List<List<int>> ();
 		for(int i = 0; i < 7;i++)
 			collectedItems.Add(new List<int>());
