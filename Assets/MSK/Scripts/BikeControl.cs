@@ -237,13 +237,22 @@ public class BikeControl : MonoBehaviour
 	public void OnTiltPress()
 	{
 		useTilt = true;
+		moveRightValue = 0f;
+		moveRight = false;
+		moveLeftValue = 0f;
+		moveLeft = false;
 		GameObject.Find("game").GetComponent<Game>().StartGame(true);
 	}
 
-	public void OnArrowsPress()
+	public void OnArrowsPress(bool forUI = true)
 	{
 		useTilt = false;
-		GameObject.Find("game").GetComponent<Game>().StartGame(false);
+		moveRightValue = 0f;
+		moveRight = false;
+		moveLeftValue = 0f;
+		moveLeft = false;
+		if(forUI)
+			GameObject.Find("game").GetComponent<Game>().StartGame(false);
 	}
 
 	public void PressNitroBtn()

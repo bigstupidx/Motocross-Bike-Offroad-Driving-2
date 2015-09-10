@@ -95,6 +95,7 @@ public class BikeManager : MonoBehaviour {
 			bikesContols.Add(extrabike);
 		}
 		setBikeProperties ();
+		OnArrowPress (false);
 	}
 	public void SetRotator(ItemRotator itm)
 	{
@@ -207,11 +208,11 @@ public class BikeManager : MonoBehaviour {
 		}
 	}
 
-	public void OnArrowPress()
+	public void OnArrowPress(bool forUI = true)
 	{
 		for(int i = 0; i < bikesContols.Count; i++)
 		{
-			bikesContols[i].OnArrowsPress();
+			bikesContols[i].OnArrowsPress(forUI);
 		}
 	}
 
