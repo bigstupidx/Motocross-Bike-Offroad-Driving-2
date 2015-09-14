@@ -208,6 +208,11 @@ public class BikeManager : MonoBehaviour {
 		}
 	}
 
+	public void ControlTypeArrow()
+	{
+		OnArrowPress (true);
+	}
+
 	public void OnArrowPress(bool forUI = true)
 	{
 		for(int i = 0; i < bikesContols.Count; i++)
